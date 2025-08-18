@@ -25,6 +25,10 @@ class LoggerConfig:
                   filter=self.format_time,
                   rotation="1 day",
                   retention=3)
+        logger.add(sys.stdout,
+                  level='INFO',
+                  format=fmt,
+                  filter=self.format_time)
     
     def set_timezone(self, timezone):
         self.timezone = pytz.timezone(timezone)
