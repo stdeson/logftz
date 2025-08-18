@@ -1,7 +1,7 @@
 from loguru import logger
 from datetime import datetime
 import pytz
-import os
+import os, sys
 
 
 class LoggerConfig:
