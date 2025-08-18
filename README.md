@@ -1,4 +1,4 @@
-# LogF - Timezone-Configurable Logging Package
+# LogFtz - Timezone-Configurable Logging Package
 
 A Python logging package based on loguru with configurable timezone support. Defaults to Shanghai timezone (Asia/Shanghai) but allows users to set any timezone.
 
@@ -24,7 +24,7 @@ pip install -r requirements.txt
 ### Basic Usage
 
 ```python
-from logf import logger
+from logftz import logger
 
 # Log with different levels
 logger.info("This is an info message")
@@ -36,7 +36,7 @@ logger.debug("This is a debug message")
 ### Timezone Configuration
 
 ```python
-from logf import logger, set_timezone
+from logftz import logger, set_timezone
 
 # Set timezone globally
 set_timezone('UTC')
@@ -54,7 +54,7 @@ logger.info("This message uses Shanghai timezone")
 ### Advanced Usage with Custom Configuration
 
 ```python
-from logf import LoggerConfig
+from logftz import LoggerConfig
 
 # Create a custom logger configuration
 config = LoggerConfig(timezone='Europe/London')
@@ -95,8 +95,8 @@ You can use any timezone supported by pytz, including:
 ## Project Structure
 
 ```
-logf/
-├── logf/
+logftz/
+├── logftz/
 │   ├── __init__.py    # Package initialization and public API
 │   └── log.py         # Core logging configuration
 ├── setup.py           # Installation configuration
