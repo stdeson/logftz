@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="logftz",
-    version="3.0.0",
+    version="3.0.1",
     author="stdeson",
     author_email="stdeson@gmail.com",
     description="A timezone-configurable logging package based on loguru with Shanghai timezone as default",
@@ -27,8 +27,8 @@ setup(
     ],
     python_requires=">=3.7",
     install_requires=[
-        "loguru>=0.6.0",
-        "pytz>=2021.1",
+        "loguru",
+        "pytz",
     ],
     keywords="logging loguru timezone configurable international",
 )

@@ -1,8 +1,6 @@
-.PHONY: dist upload
-
-dist:
-	rm -f dist/*
-	python setup.py sdist build
+.PHONY: upload
 
 upload:
+	rm -f dist/*.tar.gz
+	python setup.py sdist build
 	twine upload dist/*
