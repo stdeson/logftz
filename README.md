@@ -16,7 +16,7 @@ A Python logging package based on loguru with configurable timezone support. Def
 ### Install dependencies
 
 ```bash
-pip install -r requirements.txt
+pip install logftz
 ```
 
 ## Usage
