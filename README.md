@@ -5,15 +5,13 @@ A Python logging package based on loguru with configurable timezone support. Def
 ## Features
 
 - 🕐 Configurable timezone support (defaults to Asia/Shanghai)
+- 📊 Configurable minimum log level (defaults to INFO)
 - 📝 Clean log format: `MM-DD HH:mm:ss|LEVEL|MESSAGE`
 - 📁 Automatic daily log file rotation
 - 🗂️ Automatic retention of last 3 days of log files
 - 🚀 Built on high-performance loguru library
-- 🌍 International support with English interface
 
 ## Installation
-
-### Install dependencies
 
 ```bash
 pip install logftz
@@ -26,41 +24,33 @@ pip install logftz
 ```python
 from logftz import logger
 
-# Log with different levels
 logger.info("This is an info message")
 logger.warning("This is a warning message")
 logger.error("This is an error message")
 logger.debug("This is a debug message")
 ```
 
-### Timezone Configuration
+### Set Log Level
 
 ```python
-from logftz import logger, set_timezone
+from logftz import logger
 
-# Set timezone globally
-set_timezone('UTC')
-logger.info("This message uses UTC timezone")
+# Set minimum log level to DEBUG (show all logs)
+logger.set_level('DEBUG')
+logger.debug("This debug message will now be shown")
 
-# Set to New York timezone
-set_timezone('America/New_York')
-logger.info("This message uses New York timezone")
-
-# Back to Shanghai timezone (default)
-set_timezone('Asia/Shanghai')
-logger.info("This message uses Shanghai timezone")
+# Set minimum log level to WARNING (hide INFO and DEBUG)
+logger.set_level('WARNING')
 ```
 
-### Advanced Usage with Custom Configuration
+### Set Timezone
 
 ```python
-from logftz import LoggerConfig
+from logftz import logger
 
-# Create a custom logger configuration
-config = LoggerConfig(timezone='Europe/London')
-
-# Change timezone later
-config.set_timezone('Asia/Tokyo')
+logger.set_timezone('UTC')
+logger.set_timezone('America/New_York')
+logger.set_timezone('Asia/Shanghai')
 ```
 
 ### Log Output Example
@@ -74,55 +64,18 @@ config.set_timezone('Asia/Tokyo')
 ## Configuration
 
 - **Default Timezone**: Asia/Shanghai
-- **Log Level**: INFO and above
+- **Default Log Level**: INFO
 - **File Path**: `logs/YYYY-MM-DD.log`
 - **Rotation**: Daily rotation
 - **Retention**: Keep last 3 days of log files
 - **Format**: `MM-DD HH:mm:ss|LEVEL|MESSAGE`
 
-## Supported Timezones
-
-You can use any timezone supported by pytz, including:
-
-- `UTC`
-- `Asia/Shanghai`
-- `Asia/Tokyo`
-- `Europe/London`
-- `America/New_York`
-- `America/Los_Angeles`
-- And many more...
-
-## Project Structure
-
-```
-logftz/
-├── logftz/
-│   ├── __init__.py    # Package initialization and public API
-│   └── log.py         # Core logging configuration
-├── setup.py           # Installation configuration
-├── requirements.txt   # Dependencies
-└── README.md         # Documentation
-```
-
-## Dependencies
-
-- loguru >= 0.6.0
-- pytz >= 2021.1
-
 ## API Reference
 
-### Functions
+### Methods
 
-- `set_timezone(timezone: str)`: Set the global timezone for logging
-
-### Classes
-
-- `LoggerConfig(timezone: str = 'Asia/Shanghai')`: Create a custom logger configuration
-  - `set_timezone(timezone: str)`: Change the timezone for this configuration
-
-### Variables
-
-- `logger`: The main logger instance (loguru logger)
+- `logger.set_level(level: str)`: Set minimum log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+- `logger.set_timezone(timezone: str)`: Set timezone for logging
 
 ## License
 
